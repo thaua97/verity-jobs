@@ -1,0 +1,24 @@
+<section class="w-full flex flex-col gap-[16px] justify-center items-center md:px-6 lg:px-[10%]">
+    <h2 class="text-6xl text-indigo-700 font-bold">Informacoes pessoais</h2>
+    <form class="w-full h-full flex flex-col gap-[16px]">
+        <mat-form-field>
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Nome">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Telefone">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="CPF">
+        </mat-form-field>
+    </form>

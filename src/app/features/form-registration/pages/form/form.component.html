@@ -1,0 +1,18 @@
+<section class="w-full flex flex-col justify-center items-center md:px-6 lg:px-[10%]">
+    <app-step-wrapper 
+        class="w-full flex flex-col justify-center items-center" 
+        [stepsCount]="3"
+        [currentStep]="currentStep()" 
+        (stepChange)="stepChange($event)"
+    >
+        @if (currentStep() === 0) {
+            <app-step-identification></app-step-identification>
+        }
+        @if (currentStep() === 1) {
+            <app-step-ocupation></app-step-ocupation>
+        }
+        @if (currentStep() ===  2) {
+            <app-step-location></app-step-location>
+        }
+    </app-step-wrapper>
+</section>
