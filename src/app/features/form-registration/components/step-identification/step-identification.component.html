@@ -1,24 +1,64 @@
-<section class="w-full flex flex-col gap-[16px] justify-center items-center md:px-6 lg:px-[10%]">
+<section class="w-full flex flex-col gap-6 justify-center items-center">
     <h2 class="text-6xl text-indigo-700 font-bold">Informacoes pessoais</h2>
-    <form class="w-full h-full flex flex-col gap-[16px]">
+    <form class="w-full h-full flex flex-col gap-[16px]" [formGroup]="form">
         <mat-form-field>
             <mat-label>Nome</mat-label>
-            <input matInput placeholder="Nome">
+            <input matInput formControlName="name">
+            <mat-hint>Insira seu nome</mat-hint>
+            @if (hasError('name', 'required')) {
+                <mat-error>Nome é obrigatório.</mat-error>
+            }
+            @if (hasError('name', 'minlength')) {
+                <mat-error>Mínimo de 3 caracteres.</mat-error>
+            }
+            @if (hasError('name', 'pattern')) {
+                <mat-error>Use apenas letras e espaços.</mat-error>
+            }
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthDate" [max]="maxDate">
             <mat-hint>DD/MM/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
+            @if (hasError('birthDate', 'required')) {
+                <mat-error>Data de nascimento é obrigatória.</mat-error>
+            }
+            @if (hasError('birthDate', 'dateInvalid')) {
+                <mat-error>Data inválida.</mat-error>
+            }
+            @if (hasError('birthDate', 'dateInFuture')) {
+                <mat-error>A data não pode ser no futuro.</mat-error>
+            }
+            @if (hasError('birthDate', 'minAge')) {
+                <mat-error>Idade mínima de 14 anos.</mat-error>
+            }
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Telefone">
+            <mat-label>Telefone</mat-label>
+            <input matInput placeholder="Telefone" formControlName="phone" inputmode="tel" autocomplete="tel-national" maxlength="16" (input)="onPhoneInput($event)">
+            @if (hasError('phone', 'required')) {
+                <mat-error>Telefone é obrigatório.</mat-error>
+            }
+            @if (hasError('phone', 'phoneLength')) {
+                <mat-error>Telefone deve ter 10 a 11 dígitos.</mat-error>
+            }
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="CPF">
+            <mat-label>CPF</mat-label>
+            <input matInput placeholder="CPF" formControlName="cpf" inputmode="numeric" autocomplete="off" maxlength="14" (input)="onCpfInput($event)">
+            @if (hasError('cpf', 'required')) {
+                <mat-error>CPF é obrigatório.</mat-error>
+            }
+            @if (hasError('cpf', 'cpfLength')) {
+                <mat-error>CPF deve ter 11 dígitos.</mat-error>
+            }
+            @if (hasError('cpf', 'cpfInvalid')) {
+                <mat-error>CPF inválido.</mat-error>
+            }
         </mat-form-field>
     </form>
+</section>

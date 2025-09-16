@@ -36,8 +36,9 @@
 				<button
 					mat-button
 					class="w-full !p-auto !text-indigo-600 font-bold !rounded-[8px]"
+					[class.!text-purple-300]="!isCurrentStepValid"
 					(click)="next()"
-					[disabled]="currentStepNumber === stepsCount - 1"
+					[disabled]="currentStepNumber === stepsCount - 1 || !isCurrentStepValid"
 				>
 					Próximo
 					<mat-icon iconPositionEnd>arrow_forward</mat-icon>
@@ -47,6 +48,7 @@
 					mat-button
 					class="w-full !p-auto !text-indigo-600 font-bold !rounded-[8px]"
 					(click)="submit()"
+					[disabled]="!isCurrentStepValid"
 				>
 					Concluir
 					<mat-icon iconPositionEnd>check</mat-icon>

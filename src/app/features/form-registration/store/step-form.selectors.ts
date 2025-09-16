@@ -22,3 +22,8 @@ export const selectError = createSelector(
   selectStepFormState,
   (state) => state.error
 );
+
+export const selectOcupations = createSelector(
+  selectStepFormState,
+  (state) => state.ocupations
+);

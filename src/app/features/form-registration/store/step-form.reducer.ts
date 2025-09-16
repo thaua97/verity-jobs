@@ -21,6 +21,7 @@ export const initialState: StepFormState = {
   },
   loading: false,
   error: null,
+  ocupations: [],
 };
 
 export const stepFormReducer = createReducer(
@@ -30,8 +31,9 @@ export const stepFormReducer = createReducer(
   on(StepFormActions.setStep, (state, { step }) => ({ ...state, step })),
   on(StepFormActions.setFormData, (state, { data }) => ({ ...state, data: { ...state.data, ...data } })),
   on(StepFormActions.submitForm, (state) => ({ ...state, loading: true, error: null })),
-  on(StepFormActions.submitFormSuccess, (state) => ({ ...state, loading: false })),
+  on(StepFormActions.submitFormSuccess, (state, { id }) => ({ ...state, loading: false })),
   on(StepFormActions.submitFormFailure, (state, { error }) => ({ ...state, loading: false, error })),
+  
   // CEP lookup
   on(StepFormActions.lookupCep, (state) => ({ ...state, loading: true, error: null })),
   on(StepFormActions.lookupCepSuccess, (state, { data }) => ({
@@ -40,4 +42,9 @@ export const stepFormReducer = createReducer(
     data: { ...state.data, ...data },
   })),
   on(StepFormActions.lookupCepFailure, (state, { error }) => ({ ...state, loading: false, error })),
+
+  // Ocupations
+  on(StepFormActions.getOcupations, (state) => ({ ...state, loading: true, error: null })),
+  on(StepFormActions.getOcupationsSuccess, (state, { ocupations }) => ({ ...state, loading: false, ocupations })),
+  on(StepFormActions.getOcupationsFailure, (state, { error }) => ({ ...state, loading: false, error })),
 );

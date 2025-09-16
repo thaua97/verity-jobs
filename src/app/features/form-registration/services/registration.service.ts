@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DataStepForm } from '@/app/shared/interfaces/steps.interfaces';
+import { DataStepForm, Ocupations } from '@/app/shared/interfaces/steps.interfaces';
 import { inject } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
@@ -11,5 +11,9 @@ export class RegistrationService {
 
   submitRegistration(data: DataStepForm): Observable<DataStepForm> {
     return this.http.post<DataStepForm>(`${this.apiUrl}/registrations`, data);
+  }
+
+  getOcupations(): Observable<Ocupations[]> {
+    return this.http.get<Ocupations[]>(`${this.apiUrl}/ocupations`);
   }
 }

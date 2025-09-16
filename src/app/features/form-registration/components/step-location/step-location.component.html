@@ -1,1 +1,64 @@
-<p>step-location.component works!</p>
+<section class="w-full flex flex-col gap-6 justify-center items-center">
+	<h2 class="text-6xl text-indigo-700 font-bold">Informações Residenciais</h2>
+	<form [formGroup]="form" class="w-full h-full flex flex-col gap-4">
+		<mat-form-field>
+			<mat-label>CEP</mat-label>
+			<input
+				matInput
+				placeholder="CEP"
+				formControlName="zipCode"
+				inputmode="numeric"
+				maxlength="9"
+				(input)="onCepInput($event)"
+				(blur)="onCepBlur()"
+			/>
+			@if (hasError('zipCode', 'required')) {
+			<mat-error>CEP é obrigatório.</mat-error>
+			} @if (hasError('zipCode', 'cepLength')) {
+			<mat-error>CEP deve ter 8 dígitos.</mat-error>
+			} @if (hasError('zipCode', 'cepNotFound')) {
+			<mat-error>CEP não encontrado.</mat-error>
+			}
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Endereço</mat-label>
+			<input matInput placeholder="Endereço" formControlName="address" />
+			@if (hasError('address', 'required')) {
+			<mat-error>Endereço é obrigatório.</mat-error>
+			} @if (hasError('address', 'minlength')) {
+			<mat-error>Mínimo de 3 caracteres.</mat-error>
+			}
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Bairro</mat-label>
+			<input matInput placeholder="Bairro" formControlName="district" />
+			@if (hasError('district', 'required')) {
+			<mat-error>Bairro é obrigatório.</mat-error>
+			} @if (hasError('district', 'minlength')) {
+			<mat-error>Mínimo de 2 caracteres.</mat-error>
+			}
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Cidade</mat-label>
+			<input matInput placeholder="Cidade" formControlName="city" />
+			@if (hasError('city', 'required')) {
+			<mat-error>Cidade é obrigatória.</mat-error>
+			} @if (hasError('city', 'minlength')) {
+			<mat-error>Mínimo de 2 caracteres.</mat-error>
+			}
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Estado</mat-label>
+			<input matInput placeholder="Estado" formControlName="state" />
+			@if (hasError('state', 'required')) {
+			<mat-error>Estado é obrigatório.</mat-error>
+			} @if (hasError('state', 'minlength')) {
+			<mat-error>Mínimo de 2 caracteres.</mat-error>
+			}
+		</mat-form-field>
+	</form>
+</section>

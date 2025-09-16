@@ -1,1 +1,38 @@
-<p>step-ocupation.component works!</p>
+<section class="w-full flex flex-col gap-6 justify-center items-center">
+    <h2 class="text-6xl text-indigo-700 font-bold">Informações Profissionais</h2>
+    <form [formGroup]="form" class="w-full h-full flex flex-col gap-4">
+        <mat-form-field>
+            <mat-label>Profissão</mat-label>
+						<mat-icon matPrefix>business</mat-icon>
+						@if(hasOcupations()) {
+            <mat-select matInput placeholder="Profissão" formControlName="ocupation">
+              @for (ocupation of ocupations(); track ocupation.id) {
+                <mat-option [value]="ocupation.title">
+                    {{ ocupation.title }}
+                </mat-option>
+              }
+            </mat-select>
+						} @else {
+							<input matInput placeholder="Profissão" formControlName="ocupation" />
+						}
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Empresa</mat-label>
+						<mat-icon matPrefix>business</mat-icon>
+            <input matInput placeholder="Empresa" formControlName="company" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Salário</mat-label>
+						<mat-icon matPrefix>payments</mat-icon>
+            <input matInput placeholder="Salário" formControlName="salary" appCurrencyMask inputmode="numeric" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Skills (separadas por vírgula)</mat-label>
+            <input matInput placeholder="Ex: Angular, TypeScript, NgRx" formControlName="skills" />
+        </mat-form-field>
+
+    </form>
+</section>
