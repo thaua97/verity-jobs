@@ -1,0 +1,49 @@
+{
+  "registrations": [],
+  "ocupations": [
+    {
+      "id": "1",
+      "title": "Frontend Developer"
+    },
+    {
+      "id": "2",
+      "title": "Backend Developer"
+    },
+    {
+      "id": "3",
+      "title": "Fullstack Developer"
+    },
+    {
+      "id": "4",
+      "title": "Mobile Developer"
+    },
+    {
+      "id": "5",
+      "title": "Data Scientist"
+    },
+    {
+      "id": "6",
+      "title": "DevOps"
+    },
+    {
+      "id": "7",
+      "title": "Designer UI/UX"
+    },
+    {
+      "id": "8",
+      "title": "Designer Writer"
+    },
+    {
+      "id": "9",
+      "title": "Marketing"
+    },
+    {
+      "id": "10",
+      "title": "Social Media"
+    },
+    {
+      "id": "11",
+      "title": "Support"
+    }
+  ]
+}
