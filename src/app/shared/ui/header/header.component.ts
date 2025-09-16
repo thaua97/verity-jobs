@@ -4,6 +4,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { TranslocoService, TranslocoModule } from '@ngneat/transloco';
 import { Router, RouterLink } from '@angular/router';
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: 'app-header',
@@ -12,8 +13,9 @@ import { Router, RouterLink } from '@angular/router';
     MatMenuModule,
     MatMenuTrigger,
     TranslocoModule,
-    RouterLink
-  ],
+    RouterLink,
+    MatIconModule
+],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
