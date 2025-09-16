@@ -1,0 +1,16 @@
+{
+    "sidebar": {
+        "findJobs": "Buscar una nueva oportunidad de trabajo",
+        "myJobs": "Mis candidaturas",
+        "myProfile": "Mi perfil"
+    },
+    "header": {
+        "home": "Inicio",
+        "resume": "Resumen",
+        "language": {
+            "pt-br": "Portugués",
+            "en-us": "Inglés",
+            "es-es": "Espanhol"
+        }
+    }
+}		

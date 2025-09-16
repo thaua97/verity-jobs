@@ -1,0 +1,17 @@
+{
+    "sidebar": {
+        "findJobs": "Find a new job opportunity",
+        "myJobs": "My applications",
+        "myProfile": "My profile"
+    },
+    "header": {
+        "home": "Home",
+        "resume": "Resume",
+        "language": {
+            "pt-br": "Portuguese",
+            "en-us": "English",
+            "es-es": "Spanish"
+        }
+    }
+}
+    
