@@ -1,0 +1,13 @@
+<mat-list class="!w-full !h-full !flex !flex-col !flex-1 !gap-2">
+	@if(resumes().length > 0) { @for(resume of resumes(); track resume.id) {
+	<app-resume-list-item
+		[resumeId]="resume.id ?? ''"
+		[name]="resume.name"
+		[ocupation]="resume.ocupation"
+		[salary]="resume.salary"
+		(delete)="deleteResume($event)"
+	></app-resume-list-item>
+	} @empty {
+	<p>Nenhum registro encontrado</p>
+	} }
+</mat-list>
