@@ -1,4 +1,5 @@
 export interface DataStepForm {
+		id?: string,
     name: string;
     birthDate: string;
     phone: string;
@@ -12,4 +13,9 @@ export interface DataStepForm {
     company: string;
     salary: string;
     skills: string[];
+}
+
+export interface Ocupations {
+    id: string;
+    title: string;
 }
