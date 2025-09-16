@@ -1,5 +1,6 @@
 {
   "jobs": [
     { "id": 1, "title": "Frontend Developer", "company": "Verity", "location": "Remote" }
-  ]
+  ],
+  "registrations": []
 }
