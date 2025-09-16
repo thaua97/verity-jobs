@@ -5,7 +5,7 @@ import { ResumeComponent } from './features/resume/pages/resume/resume.component
 export const routes: Route[] = [
     {
         path: '',
-        component: FormRegistrationShellComponent
+        component: FormRegistrationShellComponent,
     },
     {   
         path: 'resumes',
