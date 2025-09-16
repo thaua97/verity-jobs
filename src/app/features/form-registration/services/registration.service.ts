@@ -7,7 +7,7 @@ import { inject } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class RegistrationService {
   private http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:3001';
+  private readonly apiUrl = 'http://localhost:3000';
 
   submitRegistration(data: DataStepForm): Observable<DataStepForm> {
     return this.http.post<DataStepForm>(`${this.apiUrl}/registrations`, data);
