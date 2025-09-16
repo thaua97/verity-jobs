@@ -9,6 +9,8 @@ import { provideStore, provideState } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { StepFormEffects } from './features/form-registration/store/step-form.effects';
 import { stepFormReducer } from './features/form-registration/store/step-form.reducer';
+import { resumeReducer, RESUME_FEATURE_KEY } from './features/resume/store/resume.reducer';
+import { ResumeEffects } from './features/resume/store/resume.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -26,8 +28,10 @@ export const appConfig: ApplicationConfig = {
     }),
     provideStore(),
     provideState('stepForm', stepFormReducer),
+    provideState(RESUME_FEATURE_KEY, resumeReducer),
     provideEffects([
-      StepFormEffects
+      StepFormEffects,
+      ResumeEffects
     ])
   ]
 };
