@@ -26,10 +26,6 @@ const initialState: State = {
 
 export const resumeReducer = createReducer(
   initialState,
-  on(ResumeActions.loadResumes, (state) => ({ ...state, loading: true, error: undefined })),
-  on(ResumeActions.loadResumesSuccess, (state, { items }) => ({ ...state, loading: false, resumes: items })),
-  on(ResumeActions.loadResumesFailure, (state, { error }) => ({ ...state, loading: false, error })),
-
   // Pagination
   on(ResumeActions.loadResumesPage, (state, { page, pageSize }) => ({ ...state, loading: true, error: undefined, page, pageSize })),
   on(ResumeActions.loadResumesPageSuccess, (state, { response }) => ({

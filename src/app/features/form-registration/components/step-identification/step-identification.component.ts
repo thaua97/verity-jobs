@@ -98,7 +98,6 @@ export class StepIdentification {
     };
   }
 
-  // ---------- Validators ---------- //
   static dateValidator(minAgeYears: number = 14) {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
@@ -153,13 +152,11 @@ export class StepIdentification {
     };
   }
 
-  // Helpers for template
   hasError(controlName: keyof typeof this.form.controls, error: string) {
     const ctrl = this.form.controls[controlName];
     return ctrl.touched && ctrl.hasError(error);
   }
 
-  // ---------- Public API for parent components ---------- //
   markAllAsTouched() {
     this.form.markAllAsTouched();
   }

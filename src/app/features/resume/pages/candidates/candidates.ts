@@ -19,7 +19,7 @@ export class Candidates {
 
   resumes = toSignal(
     this.actions$.pipe(
-      ofType(ResumeActions.loadResumesPageSuccess, ResumeActions.loadResumesSuccess),
+      ofType(ResumeActions.loadResumesPageSuccess),
       switchMap(() => this.store.select(ResumeSelectors.selectResumeItems))
     ),
     { initialValue: [] }
