@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, Signal, inject } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { Store } from '@ngrx/store';
 import { ResumeListItem } from '@/app/features/resume/components/resume-list-item/resume-list-item';
@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { MatPaginatorIntl, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { combineLatest } from 'rxjs';
+import { DataStepForm } from '@/app/shared/interfaces/steps.interfaces';
 
 function resumeListPaginatorIntlFactory(transloco: TranslocoService): MatPaginatorIntl {
 	const intl = new MatPaginatorIntl();
@@ -55,17 +56,13 @@ function resumeListPaginatorIntlFactory(transloco: TranslocoService): MatPaginat
 	],
 	templateUrl: './resume-list.html',
 })
-export class ResumeList implements OnInit {
+export class ResumeList {
+	@Input() resumes: DataStepForm[] = [];
 	private store = inject(Store);
-	resumes = toSignal(this.store.select(ResumeSelectors.selectResumeItems), { initialValue: [] });
+
 	total = toSignal(this.store.select(ResumeSelectors.selectResumeTotal), { initialValue: 0 });
 	page = toSignal(this.store.select(ResumeSelectors.selectResumePage), { initialValue: 1 });
 	pageSize = toSignal(this.store.select(ResumeSelectors.selectResumePageSize), { initialValue: 5 });
-
-	ngOnInit(): void {
-		// Initial load: page 1 with 5 items per page
-		this.store.dispatch(ResumeActions.loadResumesPage({ page: 1, pageSize: 5 }));
-	}
 
 	deleteResume(id: string) {
 		this.store.dispatch(ResumeActions.deleteResume({ id }));
