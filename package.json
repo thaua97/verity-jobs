@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "json-server": "cd src/app/mocks/ && json-server --watch db.json"
+    "mock": "cd src/app/mocks/ && json-server --watch db.json"
   },
   "prettier": {
     "printWidth": 100,
