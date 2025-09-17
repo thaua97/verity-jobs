@@ -1,24 +1,73 @@
-<header class="w-full h-16 bg-slate-50 border-b border-slate-200 py-2 px-[16px] md:px-[24px] lg:px-[5%]">
-    <div class="flex justify-between items-center">
-        <h1 class="text-indigo-600 font-bold text-2xl">VerityJobs</h1>
-        <ul class="flex gap-2">
-            <li>
-                <button class="!text-indigo-600 !font-bold !rounded-[8px]" mat-button routerLink="/" color="#2563eb">{{ 'header.home' | transloco }}</button>
-            </li>
-            <li>
-                <button class="!text-indigo-600 !font-bold !rounded-[8px]" mat-button routerLink="/resumes" color="#2563eb">{{ 'header.resume' | transloco }}</button>
-            </li>
-            <li>
-                <button class="!text-indigo-600 !font-bold !rounded-[8px]" matButton="outlined" [matMenuTriggerFor]="menu">
-                    <mat-icon>translate</mat-icon>
-                    {{ selectedLanguage() }}
-                </button>
-            </li>
-        </ul>
-    </div>
-    <mat-menu #menu="matMenu">
-        @for (language of languages(); track $index) {
-            <button mat-menu-item (click)="changeLanguage(language.value)">{{ 'header.language.' + language.value | transloco }}</button>
-        }
-    </mat-menu>
+<header
+	class="w-full h-16 bg-slate-50 border-b border-slate-200 py-2 px-[16px] md:px-[24px] lg:px-[5%]"
+>
+	<div class="flex justify-between items-center">
+		<h1 class="text-indigo-600 font-bold text-2xl">VerityJobs</h1>
+		<!-- Desktop navigation -->
+		<ul class="hidden md:flex gap-2">
+			<li>
+				<button
+					class="!text-indigo-600 !font-bold !rounded-[8px]"
+					mat-button
+					routerLink="/"
+					color="#2563eb"
+				>
+					{{ 'header.home' | transloco }}
+				</button>
+			</li>
+			<li>
+				<button
+					class="!text-indigo-600 !font-bold !rounded-[8px]"
+					mat-button
+					routerLink="/resumes"
+					color="#2563eb"
+				>
+					{{ 'header.resume' | transloco }}
+				</button>
+			</li>
+			<li>
+				<button
+					class="!text-indigo-600 !font-bold !rounded-[8px]"
+					matButton="outlined"
+					[matMenuTriggerFor]="menu"
+				>
+					<mat-icon>translate</mat-icon>
+					{{ selectedLanguage() }}
+				</button>
+			</li>
+		</ul>
+		<div class="md:hidden">
+			<button
+				mat-icon-button
+				class="!text-indigo-600 !rounded-[8px]"
+				[matMenuTriggerFor]="mobileMenu"
+			>
+				<mat-icon>menu</mat-icon>
+			</button>
+		</div>
+	</div>
+
+	<mat-menu #menu="matMenu">
+		@for (language of languages(); track $index) {
+		<button mat-menu-item (click)="changeLanguage(language.value)">
+			{{ 'header.language.' + language.value | transloco }}
+		</button>
+		}
+	</mat-menu>
+
+	<!-- Mobile menu content -->
+	<mat-menu #mobileMenu="matMenu">
+		<button mat-menu-item routerLink="/">
+			<mat-icon>home</mat-icon>
+			<span>{{ 'header.home' | transloco }}</span>
+		</button>
+		<button mat-menu-item routerLink="/resumes">
+			<mat-icon>people</mat-icon>
+			<span>{{ 'header.resume' | transloco }}</span>
+		</button>
+		<button mat-menu-item [matMenuTriggerFor]="menu">
+			<mat-icon>translate</mat-icon>
+			<span>{{ selectedLanguage() }}</span>
+		</button>
+	</mat-menu>
 </header>

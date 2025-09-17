@@ -1,8 +1,10 @@
 <aside class="w-full h-full bg-indigo-300 p-6">
     <div class="h-full flex flex-col justify-center items-center gap-[16px]">
         <img class="w-full h-[275px]" src="images/undraw_job-hunt_5umi.svg" alt="">
-        <p class="text-5xl text-white font-bold">{{ 'sidebar.findJobs' | transloco }}</p>
-        <p class="text-2xl text-white">{{ 'sidebar.myJobs' | transloco }}</p>
-        <p class="text-2xl text-white">{{ 'sidebar.myProfile' | transloco }}</p>
+        <article class="flex flex-col gap-[16px]">
+						<h2 class="text-5xl text-white font-bold">{{ 'sidebar.findJobs' | transloco }}</h2>
+						<h3 class="text-2xl text-white">{{ 'sidebar.myJobs' | transloco }}</h3>
+						<p class="text-lg text-white">{{ 'sidebar.myProfile' | transloco }}</p>
+				</article>
     </div>
 </aside>
