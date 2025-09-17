@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DataStepForm, Ocupations } from '@/app/shared/interfaces/steps.interfaces';
 import { inject } from '@angular/core';
-import { environment } from '@/environments/environment.mock';
+import { environment } from '@/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class RegistrationService {
