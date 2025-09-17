@@ -12,6 +12,8 @@ import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '@/app/shared/ui/confirm-dialog/confirm-dialog.component';
 
 import * as StepFormActions from '@/app/features/form-registration/store/step-form.actions';
 import * as StepFormSelectors from '@/app/features/form-registration/store/step-form.selectors';
@@ -20,6 +22,7 @@ import { StepOcupationComponent } from '@/app/features/form-registration/compone
 import { StepIdentification } from '@/app/features/form-registration/components/step-identification/step-identification.component';
 import { StepLocationComponent } from '@/app/features/form-registration/components/step-location/step-location.component';
 import { Router } from '@angular/router';
+import { TranslocoService } from '@ngneat/transloco';
 import { Actions, ofType } from '@ngrx/effects';
 import { mergeMap, take } from 'rxjs';
 @Component({
@@ -32,6 +35,7 @@ import { mergeMap, take } from 'rxjs';
 		StepOcupationComponent,
 		StepIdentification,
 		StepLocationComponent,
+		MatDialogModule,
 	],
 	templateUrl: './form.component.html',
 })
@@ -67,7 +71,13 @@ export class FormRegistrationShellComponent {
 
 	steps = computed(() => Array.from({ length: this.stepsCount }, (_, i) => i + 1));
 
-	constructor(private store: Store, private router: Router, private actions$: Actions) {
+	constructor(
+		private store: Store,
+		private router: Router,
+		private actions$: Actions,
+		private dialog: MatDialog,
+		private transloco: TranslocoService,
+	) {
 		this.currentStep = toSignal(this.store.select(StepFormSelectors.selectCurrentStep));
 		this.formData = toSignal(this.store.select(StepFormSelectors.selectFormData));
 		this.stepChange();
@@ -101,7 +111,24 @@ export class FormRegistrationShellComponent {
 	submit() {
 		if (!this.validateCurrentStep()) return;
 		this.stepChange();
-		this.store.dispatch(StepFormActions.submitForm({ data: this.formData() as DataStepForm }));
+
+		const ref = this.dialog.open(ConfirmDialogComponent, {
+			data: {
+				title: this.transloco.translate('dialogs.confirmSubmit.title'),
+				message: this.transloco.translate('dialogs.confirmSubmit.message'),
+				confirmText: this.transloco.translate('dialogs.confirmSubmit.confirm'),
+				cancelText: this.transloco.translate('dialogs.confirmSubmit.cancel'),
+				illustration: 'images/resume.svg',
+			},
+		});
+
+		ref.afterClosed().subscribe((confirmed) => {
+			if (confirmed) {
+				this.store.dispatch(
+					StepFormActions.submitForm({ data: this.formData() as DataStepForm })
+				);
+			}
+		});
 	}
 
 	stepChange() {

@@ -7,23 +7,25 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import * as StepFormSelectors from '@/app/features/form-registration/store/step-form.selectors';
 import * as StepFormActions from '@/app/features/form-registration/store/step-form.actions';
+import { TranslocoModule } from '@ngneat/transloco';
 
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs';
 import { Actions, ofType } from '@ngrx/effects';
 
 @Component({
-	selector: 'app-step-location',
-	standalone: true,
-	imports: [
-		MatFormFieldModule,
-		MatInputModule,
-		MatIconModule,
-		MatMenuModule,
-		MatButtonToggleModule,
-		ReactiveFormsModule,
-	],
-	templateUrl: './step-location.component.html',
+  selector: 'app-step-location',
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonToggleModule,
+    ReactiveFormsModule,
+    TranslocoModule,
+  ],
+  templateUrl: './step-location.component.html',
 })
 export class StepLocationComponent {
   form = new FormGroup({

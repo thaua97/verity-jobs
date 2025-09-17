@@ -1,63 +1,63 @@
 <section class="w-full flex flex-col gap-6 justify-center items-center">
-    <h2 class="text-6xl text-indigo-700 font-bold">Informacoes pessoais</h2>
+    <h2 class="text-6xl text-indigo-700 font-bold">{{ 'form.ident.title' | transloco }}</h2>
     <form class="w-full h-full flex flex-col gap-[16px]" [formGroup]="form">
         <mat-form-field>
-            <mat-label>Nome</mat-label>
+            <mat-label>{{ 'form.ident.name.label' | transloco }}</mat-label>
             <input matInput formControlName="name">
-            <mat-hint>Insira seu nome</mat-hint>
+            <mat-hint>{{ 'form.ident.name.hint' | transloco }}</mat-hint>
             @if (hasError('name', 'required')) {
-                <mat-error>Nome é obrigatório.</mat-error>
+                <mat-error>{{ 'form.ident.name.errors.required' | transloco }}</mat-error>
             }
             @if (hasError('name', 'minlength')) {
-                <mat-error>Mínimo de 3 caracteres.</mat-error>
+                <mat-error>{{ 'form.ident.name.errors.minlength' | transloco }}</mat-error>
             }
             @if (hasError('name', 'pattern')) {
-                <mat-error>Use apenas letras e espaços.</mat-error>
+                <mat-error>{{ 'form.ident.name.errors.pattern' | transloco }}</mat-error>
             }
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Data de Nascimento</mat-label>
+            <mat-label>{{ 'form.ident.birthDate.label' | transloco }}</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="birthDate" [max]="maxDate">
-            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-hint>{{ 'form.ident.birthDate.hint' | transloco }}</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             @if (hasError('birthDate', 'required')) {
-                <mat-error>Data de nascimento é obrigatória.</mat-error>
+                <mat-error>{{ 'form.ident.birthDate.errors.required' | transloco }}</mat-error>
             }
             @if (hasError('birthDate', 'dateInvalid')) {
-                <mat-error>Data inválida.</mat-error>
+                <mat-error>{{ 'form.ident.birthDate.errors.invalid' | transloco }}</mat-error>
             }
             @if (hasError('birthDate', 'dateInFuture')) {
-                <mat-error>A data não pode ser no futuro.</mat-error>
+                <mat-error>{{ 'form.ident.birthDate.errors.future' | transloco }}</mat-error>
             }
             @if (hasError('birthDate', 'minAge')) {
-                <mat-error>Idade mínima de 14 anos.</mat-error>
+                <mat-error>{{ 'form.ident.birthDate.errors.minAge' | transloco }}</mat-error>
             }
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Telefone</mat-label>
-            <input matInput placeholder="Telefone" formControlName="phone" inputmode="tel" autocomplete="tel-national" maxlength="16" (input)="onPhoneInput($event)">
+            <mat-label>{{ 'form.ident.phone.label' | transloco }}</mat-label>
+            <input matInput [placeholder]="('form.ident.phone.placeholder' | transloco)" formControlName="phone" inputmode="tel" autocomplete="tel-national" maxlength="16" (input)="onPhoneInput($event)">
             @if (hasError('phone', 'required')) {
-                <mat-error>Telefone é obrigatório.</mat-error>
+                <mat-error>{{ 'form.ident.phone.errors.required' | transloco }}</mat-error>
             }
             @if (hasError('phone', 'phoneLength')) {
-                <mat-error>Telefone deve ter 10 a 11 dígitos.</mat-error>
+                <mat-error>{{ 'form.ident.phone.errors.length' | transloco }}</mat-error>
             }
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>CPF</mat-label>
-            <input matInput placeholder="CPF" formControlName="cpf" inputmode="numeric" autocomplete="off" maxlength="14" (input)="onCpfInput($event)">
+            <mat-label>{{ 'form.ident.cpf.label' | transloco }}</mat-label>
+            <input matInput [placeholder]="('form.ident.cpf.placeholder' | transloco)" formControlName="cpf" inputmode="numeric" autocomplete="off" maxlength="14" (input)="onCpfInput($event)">
             @if (hasError('cpf', 'required')) {
-                <mat-error>CPF é obrigatório.</mat-error>
+                <mat-error>{{ 'form.ident.cpf.errors.required' | transloco }}</mat-error>
             }
             @if (hasError('cpf', 'cpfLength')) {
-                <mat-error>CPF deve ter 11 dígitos.</mat-error>
+                <mat-error>{{ 'form.ident.cpf.errors.length' | transloco }}</mat-error>
             }
             @if (hasError('cpf', 'cpfInvalid')) {
-                <mat-error>CPF inválido.</mat-error>
+                <mat-error>{{ 'form.ident.cpf.errors.invalid' | transloco }}</mat-error>
             }
         </mat-form-field>
     </form>

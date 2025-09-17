@@ -7,6 +7,7 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validatio
 import { Store } from '@ngrx/store';
 import * as StepFormSelectors from '@/app/features/form-registration/store/step-form.selectors';
 import { take } from 'rxjs/operators';
+import { TranslocoModule } from '@ngneat/transloco';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -23,7 +24,7 @@ export const MY_DATE_FORMATS = {
 @Component({
   selector: 'app-step-identification',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule, ReactiveFormsModule],
+  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule, ReactiveFormsModule, TranslocoModule],
   providers: [
     provideNativeDateAdapter(),
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },

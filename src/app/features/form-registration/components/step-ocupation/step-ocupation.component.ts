@@ -12,6 +12,7 @@ import { Ocupations } from '@/app/shared/interfaces/steps.interfaces';
 import { toSignal,  } from '@angular/core/rxjs-interop';
 import { CurrencyMaskDirective } from '@/app/shared/directives/currency-mask.directive';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
 	selector: 'app-step-ocupation',
@@ -23,7 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
 		MatSnackBarModule,
 		MatSelectModule,
 		CurrencyMaskDirective,
-		MatIconModule
+		MatIconModule,
+		TranslocoModule
 	],
 	templateUrl: './step-ocupation.component.html',
 })
