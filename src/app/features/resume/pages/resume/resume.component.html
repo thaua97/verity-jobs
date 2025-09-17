@@ -1,17 +1,22 @@
 <section class="min-h-full w-full flex flex-col items-center px-4 md:px-6 lg:px-[10%] py-6">
 	<div class="w-full max-w-5xl flex flex-col gap-6">
 		<div class="flex items-center justify-between">
-			<h2 class="text-3xl font-bold text-indigo-700">Resumo</h2>
+			<div class="flex items-center gap-2">
+				<button class="!bg-indigo-200 !text-indigo-600 !hover:bg-indigo-400 transition-all !duration-300 !rounded-[8px]" mat-icon-button routerLink="/resumes">
+					<mat-icon>arrow_back</mat-icon>
+				</button>
+				<h2 class="text-3xl font-bold text-indigo-700">{{ 'resume.title' | transloco }}</h2>
+			</div>
 			@if (formData()) {
-			<button
-				mat-raised-button
-				color="primary"
-				class="!bg-indigo-600 !text-white !rounded-[8px]"
-				(click)="downloadResume()"
-			>
-				<mat-icon class="mr-2">download</mat-icon>
-				Baixar PDF
-			</button>
+				<button
+					mat-raised-button
+					color="primary"
+					class="!bg-indigo-600 !text-white !rounded-[8px]"
+					(click)="downloadResume()"
+				>
+					<mat-icon class="mr-2">download</mat-icon>
+					{{ 'resume.downloadPdf' | transloco }}
+				</button>
 			}
 		</div>
 
@@ -19,29 +24,29 @@
 		<div #resumeRef class="flex flex-1 flex-col gap-6">
 			<mat-card class="!shadow-none">
 				<mat-card-header>
-					<mat-card-title class="text-lg font-semibold">Identificação</mat-card-title>
+					<mat-card-title class="text-lg font-semibold">{{ 'resume.sections.identification' | transloco }}</mat-card-title>
 				</mat-card-header>
 				<mat-card-content>
 					<mat-list>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>person</mat-icon>
 							<div matListItemTitle>{{ formData()!.name || '---' }}</div>
-							<div matListItemLine>Nome completo</div>
+							<div matListItemLine>{{ 'resume.identification.fullName' | transloco }}</div>
 						</mat-list-item>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>calendar_month</mat-icon>
 							<div matListItemTitle>{{ formData()!.birthDate || '---' }}</div>
-							<div matListItemLine>Data de nascimento</div>
+							<div matListItemLine>{{ 'resume.identification.birthDate' | transloco }}</div>
 						</mat-list-item>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>call</mat-icon>
 							<div matListItemTitle>{{ formData()!.phone || '---' }}</div>
-							<div matListItemLine>Telefone</div>
+							<div matListItemLine>{{ 'resume.identification.phone' | transloco }}</div>
 						</mat-list-item>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>badge</mat-icon>
 							<div matListItemTitle>{{ formData()!.cpf || '---' }}</div>
-							<div matListItemLine>CPF</div>
+							<div matListItemLine>{{ 'resume.identification.cpf' | transloco }}</div>
 						</mat-list-item>
 					</mat-list>
 				</mat-card-content>
@@ -49,29 +54,29 @@
 
 			<mat-card class="!shadow-none">
 				<mat-card-header>
-					<mat-card-title class="text-lg font-semibold">Endereço</mat-card-title>
+					<mat-card-title class="text-lg font-semibold">{{ 'resume.sections.address' | transloco }}</mat-card-title>
 				</mat-card-header>
 				<mat-card-content>
 					<mat-list>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>home</mat-icon>
 							<div matListItemTitle>{{ formData()!.address || '---' }}</div>
-							<div matListItemLine>Endereço</div>
+							<div matListItemLine>{{ 'resume.address.address' | transloco }}</div>
 						</mat-list-item>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>map</mat-icon>
 							<div matListItemTitle>{{ formData()!.district || '---' }}</div>
-							<div matListItemLine>Bairro</div>
+							<div matListItemLine>{{ 'resume.address.district' | transloco }}</div>
 						</mat-list-item>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>location_city</mat-icon>
 							<div matListItemTitle>{{ formData()!.city || '---' }} - {{ formData()!.state || '---' }}</div>
-							<div matListItemLine>Cidade/UF</div>
+							<div matListItemLine>{{ 'resume.address.cityUf' | transloco }}</div>
 						</mat-list-item>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>markunread_mailbox</mat-icon>
 							<div matListItemTitle>{{ formData()!.zipCode || '---' }}</div>
-							<div matListItemLine>CEP</div>
+							<div matListItemLine>{{ 'resume.address.zipCode' | transloco }}</div>
 						</mat-list-item>
 					</mat-list>
 				</mat-card-content>
@@ -79,31 +84,31 @@
 
 			<mat-card class="!shadow-none" data-pdf-order="last">
 				<mat-card-header>
-					<mat-card-title class="text-lg font-semibold">Profissional</mat-card-title>
+					<mat-card-title class="text-lg font-semibold">{{ 'resume.sections.professional' | transloco }}</mat-card-title>
 				</mat-card-header>
 				<mat-card-content>
 					<mat-list>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>work</mat-icon>
 							<div matListItemTitle>{{ formData()!.ocupation || '---' }}</div>
-							<div matListItemLine>Profissão</div>
+							<div matListItemLine>{{ 'resume.professional.ocupation' | transloco }}</div>
 						</mat-list-item>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>business</mat-icon>
 							<div matListItemTitle>{{ formData()!.company || '---' }}</div>
-							<div matListItemLine>Empresa</div>
+							<div matListItemLine>{{ 'resume.professional.company' | transloco }}</div>
 						</mat-list-item>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>payments</mat-icon>
 							<div matListItemTitle>{{ formData()!.salary || '0.00' }}</div>
-							<div matListItemLine>Salário</div>
+							<div matListItemLine>{{ 'resume.professional.salary' | transloco }}</div>
 						</mat-list-item>
 					</mat-list>
 
 					<div class="mt-4">
 						<h3 class="text-base font-semibold mb-2 flex items-center gap-2">
 							<mat-icon>star</mat-icon>
-							Habilidades
+							{{ 'resume.professional.skills' | transloco }}
 						</h3>
 						<ul class="flex flex-wrap gap-2">
 							@for (skill of formData()!.skills; track skill) {
@@ -113,7 +118,7 @@
 								{{ skill }}
 							</li>
 							} @empty {
-							<li class="text-sm text-gray-500 list-none">Nenhuma habilidade informada.</li>
+							<li class="text-sm text-gray-500 list-none">{{ 'resume.professional.noSkills' | transloco }}</li>
 							}
 						</ul>
 					</div>
@@ -133,17 +138,16 @@
 		} @loading {
 		<mat-card class="shadow-sm">
 			<mat-card-content>
-				<div class="text-gray-500">Carregando resumo...</div>
+				<div class="text-gray-500">{{ 'resume.loading' | transloco }}</div>
 			</mat-card-content>
 		</mat-card>
 		} } @else {
 		<mat-card class="shadow-sm">
 			<mat-card-content>
-				<p class="text-gray-600">
-					Nenhum dado encontrado. Volte ao formulário para preencher suas informações.
-				</p>
+				<p class="text-gray-600">{{ 'resume.empty' | transloco }}</p>
 			</mat-card-content>
 		</mat-card>
 		}
 	</div>
 </section>
+

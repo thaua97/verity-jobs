@@ -5,11 +5,13 @@ import { ResumeListItem } from '@/app/features/resume/components/resume-list-ite
 import { toSignal } from '@angular/core/rxjs-interop';
 import * as ResumeSelectors from '@/app/features/resume/store/resume.selectors';
 import * as ResumeActions from '@/app/features/resume/store/resume.actions';
+import { RouterLink } from '@angular/router';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
 	selector: 'app-resume-list',
 	standalone: true,
-	imports: [MatListModule, ResumeListItem],
+	imports: [MatListModule, ResumeListItem, RouterLink, TranslocoModule],
 	templateUrl: './resume-list.html',
 })
 export class ResumeList {

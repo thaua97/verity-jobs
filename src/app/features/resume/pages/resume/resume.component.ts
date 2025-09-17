@@ -8,9 +8,10 @@ import { Store } from '@ngrx/store';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DataStepForm } from '@/app/shared/interfaces/steps.interfaces';
 import { PdfExportService } from '@/app/shared/services/pdf-export.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import * as ResumeActions from '@/app/features/resume/store/resume.actions';
 import * as ResumeSelectors from '@/app/features/resume/store/resume.selectors';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
 	selector: 'app-resume',
@@ -20,7 +21,9 @@ import * as ResumeSelectors from '@/app/features/resume/store/resume.selectors';
 		MatCardModule,
 		MatListModule,
 		MatIconModule,
-		MatButtonModule
+		MatButtonModule,
+		TranslocoModule,
+		RouterLink
 	],
 	templateUrl: './resume.component.html',
 })

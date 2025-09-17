@@ -3,14 +3,15 @@ import { ResumeList } from '@/app/features/resume/components/resume-list/resume-
 import { Actions, ofType } from '@ngrx/effects';
 import * as ResumeActions from '@/app/features/resume/store/resume.actions';
 import { Store } from '@ngrx/store';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
-	selector: 'app-resumes',
-	imports: [ResumeList],
-	templateUrl: './resumes.html',
+	selector: 'app-candidates',
+	imports: [ResumeList, TranslocoModule],
+	templateUrl: './candidates.html',
 })
-export class Resumes {
-	constructor(private actions$: Actions, private store: Store) {}
+export class Candidates {
+	constructor(private store: Store) {}
 
 	ngOnInit(): void {
 		this.loadResumes();
