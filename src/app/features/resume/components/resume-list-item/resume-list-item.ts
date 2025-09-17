@@ -4,7 +4,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ConfirmDialogComponent } from '@/app/shared/ui/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogComponent } from '@/app/shared/ui/confirm-dialog/confirm-dialog';
 import { TranslocoService } from '@ngneat/transloco';
 
 @Component({

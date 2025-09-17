@@ -32,7 +32,7 @@ import { Actions, ofType } from '@ngrx/effects';
 		ReactiveFormsModule,
 		TranslocoModule,
 	],
-	templateUrl: './step-location.component.html',
+	templateUrl: './step-location.html',
 })
 export class StepLocationComponent {
 	form = new FormGroup({

@@ -5,7 +5,7 @@ import { TranslocoModule } from '@ngneat/transloco';
   selector: 'app-footer',
   standalone: true,
   imports: [TranslocoModule],
-  templateUrl: './footer.component.html',
+  templateUrl: './footer.html',
 })
 export class Footer {
 

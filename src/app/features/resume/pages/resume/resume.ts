@@ -8,10 +8,12 @@ import { Store } from '@ngrx/store';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DataStepForm } from '@/app/shared/interfaces/steps.interfaces';
 import { PdfExportService } from '@/app/shared/services/pdf-export.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import * as ResumeActions from '@/app/features/resume/store/resume.actions';
 import * as ResumeSelectors from '@/app/features/resume/store/resume.selectors';
 import { TranslocoModule } from '@ngneat/transloco';
+import { RouterLink } from '@angular/router';
+import { DateFormatPipe } from '@/app/shared/pipes/date-format.pipe';
 
 @Component({
 	selector: 'app-resume',
@@ -23,9 +25,10 @@ import { TranslocoModule } from '@ngneat/transloco';
 		MatIconModule,
 		MatButtonModule,
 		TranslocoModule,
-		RouterLink
+		RouterLink,
+		DateFormatPipe
 	],
-	templateUrl: './resume.component.html',
+	templateUrl: './resume.html',
 })
 export class ResumeComponent {
 	formData: Signal<DataStepForm | undefined>;

@@ -5,7 +5,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 @Component({
   selector: 'app-sidebar',
   imports: [TranslocoModule],
-  templateUrl: './sidebar.component.html',
+  templateUrl: './sidebar.html',
 })
 export class Sidebar {
   image = 'undraw_online-resume_z4sp.svg';

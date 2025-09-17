@@ -16,11 +16,11 @@ import { MatIconModule } from "@angular/material/icon";
     RouterLink,
     MatIconModule
 ],
-  templateUrl: './header.component.html',
+  templateUrl: './header.html',
 })
 export class HeaderComponent {
   selectedLanguage = signal('pt-br');
-  
+
   languages = computed(() => [
     { value: 'pt-br', label: 'Português' },
     { value: 'en-us', label: 'English' },
@@ -36,6 +36,6 @@ export class HeaderComponent {
 
   changeLanguage(lang: string): void {
     this.translocoService.setActiveLang(lang);
-    this.selectedLanguage.set(lang);    
+    this.selectedLanguage.set(lang);
   }
 }

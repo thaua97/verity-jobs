@@ -15,7 +15,7 @@ export type ConfirmDialogData = {
   selector: 'app-confirm-dialog',
   standalone: true,
   imports: [MatDialogModule, MatButtonModule, MatIconModule],
-  templateUrl: './confirm-dialog.component.html',
+  templateUrl: './confirm-dialog.html',
 })
 export class ConfirmDialogComponent {
 	@Output() confirm = new EventEmitter<void>();

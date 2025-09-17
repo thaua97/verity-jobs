@@ -3,6 +3,7 @@
     <form class="w-full h-full flex flex-col gap-[16px]" [formGroup]="form">
         <mat-form-field>
             <mat-label>{{ 'form.ident.name.label' | transloco }}</mat-label>
+						<mat-icon matPrefix>person</mat-icon>
             <input matInput formControlName="name">
             <mat-hint>{{ 'form.ident.name.hint' | transloco }}</mat-hint>
             @if (hasError('name', 'required')) {
@@ -16,11 +17,18 @@
             }
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field (click)="openDatePicker()">
             <mat-label>{{ 'form.ident.birthDate.label' | transloco }}</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="birthDate" [max]="maxDate">
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="birthDate"
+              [max]="maxDate"
+              placeholder="DD/MM/AAAA"
+              readonly
+            />
             <mat-hint>{{ 'form.ident.birthDate.hint' | transloco }}</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker-toggle matIconPrefix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             @if (hasError('birthDate', 'required')) {
                 <mat-error>{{ 'form.ident.birthDate.errors.required' | transloco }}</mat-error>
@@ -38,7 +46,8 @@
 
         <mat-form-field>
             <mat-label>{{ 'form.ident.phone.label' | transloco }}</mat-label>
-            <input matInput [placeholder]="('form.ident.phone.placeholder' | transloco)" formControlName="phone" inputmode="tel" autocomplete="tel-national" maxlength="16" (input)="onPhoneInput($event)">
+            <mat-icon matPrefix>call</mat-icon>
+            <input matInput [placeholder]="('form.ident.phone.placeholder' | transloco)" formControlName="phone" inputmode="tel" autocomplete="tel-national" maxlength="16" appPhoneMask>
             @if (hasError('phone', 'required')) {
                 <mat-error>{{ 'form.ident.phone.errors.required' | transloco }}</mat-error>
             }
@@ -49,7 +58,8 @@
 
         <mat-form-field>
             <mat-label>{{ 'form.ident.cpf.label' | transloco }}</mat-label>
-            <input matInput [placeholder]="('form.ident.cpf.placeholder' | transloco)" formControlName="cpf" inputmode="numeric" autocomplete="off" maxlength="14" (input)="onCpfInput($event)">
+            <mat-icon matPrefix>badge</mat-icon>
+            <input matInput [placeholder]="('form.ident.cpf.placeholder' | transloco)" formControlName="cpf" inputmode="numeric" autocomplete="off" maxlength="14" appCpfMask>
             @if (hasError('cpf', 'required')) {
                 <mat-error>{{ 'form.ident.cpf.errors.required' | transloco }}</mat-error>
             }

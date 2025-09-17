@@ -1,5 +1,5 @@
 @if(resumes.length) {
-<mat-list class="!w-full !flex !flex-col !gap-2">
+<mat-list class="!w-full !flex !flex-col !gap-4">
 	@for(resume of resumes; track resume.id) {
 	<app-resume-list-item
 		[resumeId]="resume.id ?? ''"
@@ -22,7 +22,7 @@
   />
 </div>
 } @else {
-<article class="w-full flex items-center justify-center py-10">
+<article class="w-full h-full flex items-center justify-center py-10">
 	<div class="w-full max-w-xl flex flex-col items-center text-center gap-4 px-4">
 		<img
 			class="w-[160px] h-[160px] md:w-[200px] md:h-[200px]"

@@ -1,6 +1,6 @@
 <section class="h-full w-full flex flex-col justify-center items-center md:px-6 lg:px-[10%]">
 	<div class="flex flex-col justify-center items-center w-full h-full">
-		<section class="w-full h-full rounded-2xl p-2 md:px-6 lg:px-[10%]">
+		<section class="w-full h-full flex flex-col gap-6 p-2 md:px-6 lg:px-[10%]">
 			<div class="flex w-full gap-4 mb-4">
 				@for (step of steps(); track $index) {
 				<span
@@ -12,13 +12,15 @@
 				></span>
 				}
 			</div>
-			@switch (currentStepNumber) { @case (0) {
-			<app-step-identification></app-step-identification>
-			} @case (1) {
-			<app-step-location></app-step-location>
-			} @case (2) {
-			<app-step-ocupation></app-step-ocupation>
-			} }
+			@switch (currentStepNumber) {
+				@case (0) {
+					<app-step-identification></app-step-identification>
+				} @case (1) {
+					<app-step-location></app-step-location>
+				} @case (2) {
+					<app-step-ocupation></app-step-ocupation>
+				}
+			}
 			<div class="w-full flex justify-center items-center gap-[16px]">
 				@if (currentStepNumber > 0) {
 				<button
@@ -34,9 +36,9 @@
 				<button
 					mat-button
 					class="w-full !p-auto !text-indigo-600 !bg-gray-200 font-bold !rounded-[8px]"
-					[class.!text-indigo-100]="!isCurrentStepValid"
+					[class.!text-indigo-100]="!isCurrentStepValid()"
 					(click)="next()"
-					[disabled]="currentStepNumber === stepsCount - 1 || !isCurrentStepValid"
+					[disabled]="currentStepNumber === stepsCount - 1 || !isCurrentStepValid()"
 				>
 					Próximo
 					<mat-icon iconPositionEnd>arrow_forward</mat-icon>
@@ -46,7 +48,7 @@
 					mat-button
 					class="w-full !p-auto !text-indigo-600 !bg-gray-200 !hover:!bg-indigo-400 font-bold !rounded-[8px]"
 					(click)="submit()"
-					[disabled]="!isCurrentStepValid"
+					[disabled]="!isCurrentStepValid()"
 				>
 					Concluir
 					<mat-icon iconPositionEnd>check</mat-icon>

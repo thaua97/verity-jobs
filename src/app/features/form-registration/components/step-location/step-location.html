@@ -3,9 +3,10 @@
 	<form [formGroup]="form" class="w-full h-full flex flex-col gap-4">
 		<mat-form-field>
 			<mat-label>{{ 'form.location.zip.label' | transloco }}</mat-label>
+			<mat-icon matPrefix>markunread_mailbox</mat-icon>
 			<input
 				matInput
-				[placeholder]="('form.location.zip.placeholder' | transloco)"
+				[placeholder]="'form.location.zip.placeholder' | transloco"
 				formControlName="zipCode"
 				inputmode="numeric"
 				maxlength="9"
@@ -23,7 +24,12 @@
 
 		<mat-form-field>
 			<mat-label>{{ 'form.location.address.label' | transloco }}</mat-label>
-			<input matInput [placeholder]="('form.location.address.placeholder' | transloco)" formControlName="address" />
+			<mat-icon matPrefix>map</mat-icon>
+			<input
+				matInput
+				[placeholder]="'form.location.address.placeholder' | transloco"
+				formControlName="address"
+			/>
 			@if (hasError('address', 'required')) {
 			<mat-error>{{ 'form.location.address.errors.required' | transloco }}</mat-error>
 			} @if (hasError('address', 'minlength')) {
@@ -33,7 +39,12 @@
 
 		<mat-form-field>
 			<mat-label>{{ 'form.location.district.label' | transloco }}</mat-label>
-			<input matInput [placeholder]="('form.location.district.placeholder' | transloco)" formControlName="district" />
+			<mat-icon matPrefix>location_city</mat-icon>
+			<input
+				matInput
+				[placeholder]="'form.location.district.placeholder' | transloco"
+				formControlName="district"
+			/>
 			@if (hasError('district', 'required')) {
 			<mat-error>{{ 'form.location.district.errors.required' | transloco }}</mat-error>
 			} @if (hasError('district', 'minlength')) {
@@ -43,7 +54,12 @@
 
 		<mat-form-field>
 			<mat-label>{{ 'form.location.city.label' | transloco }}</mat-label>
-			<input matInput [placeholder]="('form.location.city.placeholder' | transloco)" formControlName="city" />
+			<mat-icon matPrefix>home</mat-icon>
+			<input
+				matInput
+				[placeholder]="'form.location.city.placeholder' | transloco"
+				formControlName="city"
+			/>
 			@if (hasError('city', 'required')) {
 			<mat-error>{{ 'form.location.city.errors.required' | transloco }}</mat-error>
 			} @if (hasError('city', 'minlength')) {
@@ -53,7 +69,12 @@
 
 		<mat-form-field>
 			<mat-label>{{ 'form.location.state.label' | transloco }}</mat-label>
-			<input matInput [placeholder]="('form.location.state.placeholder' | transloco)" formControlName="state" />
+			<mat-icon matPrefix>flag</mat-icon>
+			<input
+				matInput
+				[placeholder]="'form.location.state.placeholder' | transloco"
+				formControlName="state"
+			/>
 			@if (hasError('state', 'required')) {
 			<mat-error>{{ 'form.location.state.errors.required' | transloco }}</mat-error>
 			} @if (hasError('state', 'minlength')) {

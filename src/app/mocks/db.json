@@ -1,25 +1,21 @@
 {
   "registrations": [
     {
-      "id": "e027",
-      "name": "Teste Fulano",
-      "birthDate": "2002-02-13T02:00:00.000Z",
+      "id": "d86d",
+      "name": "teste",
+      "birthDate": "2002-02-06T02:00:00.000Z",
       "phone": "53991625225",
-      "cpf": "21936374072",
+      "cpf": "04277761046",
       "address": "Avenida Duque de Caxias",
       "district": "Fragata",
       "city": "Pelotas",
       "state": "RS",
       "zipCode": "96030003",
-      "ocupation": "Frontend Developer",
-      "company": "Teste SA",
-      "salary": "R$ 9.000,00",
+      "ocupation": "Fullstack Developer",
+      "company": "Gg.OP",
+      "salary": "R$ 6.000,00",
       "skills": [
-        "Angular",
-        "React",
-        "Vue",
-        "Javascript",
-        "Proatividade"
+        "Back-end"
       ]
     }
   ],

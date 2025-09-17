@@ -27,7 +27,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 		MatIconModule,
 		TranslocoModule
 	],
-	templateUrl: './step-ocupation.component.html',
+	templateUrl: './step-ocupation.html',
 })
 export class StepOcupationComponent {
 	form = new FormGroup({

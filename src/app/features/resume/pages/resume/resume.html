@@ -35,7 +35,7 @@
 						</mat-list-item>
 						<mat-list-item class="!h-full">
 							<mat-icon matListItemIcon>calendar_month</mat-icon>
-							<div matListItemTitle>{{ formData()!.birthDate || '---' }}</div>
+							<div matListItemTitle>{{ formData()!.birthDate | dateFormat }}</div>
 							<div matListItemLine>{{ 'resume.identification.birthDate' | transloco }}</div>
 						</mat-list-item>
 						<mat-list-item class="!h-full">
