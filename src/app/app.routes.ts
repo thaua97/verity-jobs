@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
 import { FormRegistrationShellComponent } from './features/form-registration/pages/form/form.component';
 import { ResumeComponent } from './features/resume/pages/resume/resume.component';
-import { Resumes } from './features/resume/pages/resumes/resumes';
+import { Candidates } from './features/resume/pages/candidates/candidates';
 
 export const routes: Route[] = [
     {
@@ -10,7 +10,7 @@ export const routes: Route[] = [
     },
     {
         path: 'resumes',
-        component: Resumes,
+        component: Candidates,
     },
 		{
 			path: 'resumes/:id/candidate',
