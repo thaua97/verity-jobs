@@ -14,7 +14,6 @@ export class ResumeService {
       .set('_page', String(page))
       .set('_per_page', String(pageSize))
       .set('_order', 'desc')
-      .set('_sort', 'id');
 
     return this.http.get<ResponsePaginated>(`${this.apiUrl}/registrations`, {
       params,
