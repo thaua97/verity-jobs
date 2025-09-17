@@ -1,10 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { DataStepForm, ResponsePaginated } from '@/app/shared/interfaces/steps.interfaces';
 
-export const loadResumes = createAction('[Resumes] Load Resumes');
-export const loadResumesSuccess = createAction('[Resumes] Load Resumes Success', props<{ items: DataStepForm[] }>());
-export const loadResumesFailure = createAction('[Resumes] Load Resumes Failure', props<{ error: unknown }>());
-
 // Pagination
 export const loadResumesPage = createAction(
   '[Resumes] Load Resumes Page',

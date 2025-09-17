@@ -17,7 +17,17 @@ export class ResumeEffects {
       mergeMap(({ page, pageSize }) =>
         this.api.getResumes(page, pageSize).pipe(
           map((resp) => {
-            const response = resp.body as ResponsePaginated;
+            const response: ResponsePaginated = Array.isArray(resp)
+              ? {
+                  data: resp,
+                  first: 1,
+                  prev: null,
+                  next: null,
+                  last: 1,
+                  pages: 1,
+                  items: resp.length,
+                }
+              : (resp as ResponsePaginated);
             return ResumeActions.loadResumesPageSuccess({ response });
           }),
           catchError((error) => of(ResumeActions.loadResumesPageFailure({ error })))
