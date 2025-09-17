@@ -10,12 +10,9 @@ import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { MatPaginatorIntl, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { combineLatest } from 'rxjs';
 
-// Component-scoped paginator intl using a factory with Transloco
 function resumeListPaginatorIntlFactory(transloco: TranslocoService): MatPaginatorIntl {
 	const intl = new MatPaginatorIntl();
-	// Use intl.changes to notify MatPaginator of updates
 
-	// Use selectTranslate ensures values emit when lang changes and when files are loaded
 	combineLatest([
 		transloco.selectTranslate('resumes.pagination.perPage'),
 		transloco.selectTranslate('resumes.pagination.next'),
@@ -42,7 +39,6 @@ function resumeListPaginatorIntlFactory(transloco: TranslocoService): MatPaginat
 		intl.changes.next();
 	});
 
-	// Optionally, tie into Angular destroy if needed when provided at component scope
 	return intl;
 }
 

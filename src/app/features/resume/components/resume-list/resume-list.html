@@ -1,4 +1,4 @@
-@if(resumes().length > 0) {
+@if(resumes().length) {
 <mat-list class="!w-full !flex !flex-col !gap-2">
 	@for(resume of resumes(); track resume.id) {
 	<app-resume-list-item
