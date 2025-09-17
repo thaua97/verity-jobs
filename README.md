@@ -1,5 +1,6 @@
 # VerityJobs
 [Disponivel para teste](https://verity-jobs.vercel.app/)
+
 Aplicação web para cadastro e gestão de candidatos (currículos). O objetivo é oferecer uma experiência moderna para inserir, listar, paginar e visualizar candidatos, com suporte a internacionalização (i18n) e arquitetura escalável por features.
 
 ## Badges
@@ -42,10 +43,10 @@ src/
 
 Para detalhes arquiteturais e decisões, veja os ADRs em `docs/adr/`:
 
-- `0001-adotar-ngrx-para-gerenciamento-de-estado.md`
-- `0002-adotar-tailwindcss.md`
-- `0003-combinar-tailwindcss-com-angular-material.md`
-- `0004-estrategia-testes-unitarios-sem-jit.md`
+- [0001-adotar-ngrx-para-gerenciamento-de-estado.md](https://github.com/thaua97/verity-jobs/blob/feature/forms/docs/adr/0001-adotar-ngrx-para-gerenciamento-de-estado.md)
+- [0002-adotar-tailwindcss.md](https://github.com/thaua97/verity-jobs/blob/feature/forms/docs/adr/0002-adotar-tailwindcss.md)
+- [0003-combinar-tailwindcss-com-angular-material.md](https://github.com/thaua97/verity-jobs/blob/feature/forms/docs/adr/0003-combinar-tailwindcss-com-angular-material.md)
+- [0004-estrategia-testes-unitarios-sem-jit.md](https://github.com/thaua97/verity-jobs/blob/feature/forms/docs/adr/0004-estrategia-testes-unitarios-sem-jit.md)
 
 ## Pré-requisitos
 
