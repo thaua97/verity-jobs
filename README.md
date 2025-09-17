@@ -1,5 +1,5 @@
 # VerityJobs
-
+[Disponivel para teste](https://verity-jobs.vercel.app/)
 Aplicação web para cadastro e gestão de candidatos (currículos). O objetivo é oferecer uma experiência moderna para inserir, listar, paginar e visualizar candidatos, com suporte a internacionalização (i18n) e arquitetura escalável por features.
 
 ## Badges
