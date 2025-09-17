@@ -15,11 +15,7 @@
 	},
 	"footer": {
 		"brand": "Verity_",
-		"home": "Inicio",
-		"resumes": "Currículums",
-		"jobs": "Trabajos",
-		"profile": "Perfil",
-		"logout": "Salir"
+		"description": "Conoce a Verity"
 	},
 	"resume": {
 		"title": "Resumen",
@@ -156,7 +152,15 @@
 		}
 	},
 	"resumes": {
-		"title": "Currículos_"
+		"title": "Currículos_",
+		"pagination": {
+			"prev": "Anterior",
+			"next": "Proximo",
+			"first": "Primera",
+			"last": "Última",
+			"perPage": "itens por página",
+			"empty": "Nenhum candidato encontrado"
+		}
 	},
 	"noCandidates": {
 		"title": "No hay candidatos en este momento",

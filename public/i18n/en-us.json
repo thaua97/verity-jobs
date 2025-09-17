@@ -15,11 +15,7 @@
 	},
 	"footer": {
 		"brand": "Verity_",
-		"home": "Home",
-		"resumes": "Resumes",
-		"jobs": "Jobs",
-		"profile": "Profile",
-		"logout": "Logout"
+		"description": "About Verity"
 	},
 	"resume": {
 		"title": "Resume",
@@ -156,7 +152,15 @@
 		}
 	},
 	"resumes": {
-		"title": "Candidates_"
+		"title": "Candidates_",
+		"pagination": {
+			"prev": "Previous",
+			"next": "Next",
+			"first": "First",
+			"last": "Last",
+			"perPage": "itens per page",
+			"empty": "No candidates found"
+		}
 	},
 	"noCandidates": {
 		"title": "No candidates at the moment",
