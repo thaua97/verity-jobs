@@ -19,3 +19,13 @@ export interface Ocupations {
     id: string;
     title: string;
 }
+
+export interface ResponsePaginated {
+	data: DataStepForm[];
+	first: number;
+	prev: number | null;
+	next: number | null;
+	last: number;
+	pages: number;
+	items: number;
+}
