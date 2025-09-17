@@ -1,59 +1,125 @@
 # VerityJobs
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+Aplicação web para cadastro e gestão de candidatos (currículos). O objetivo é oferecer uma experiência moderna para inserir, listar, paginar e visualizar candidatos, com suporte a internacionalização (i18n) e arquitetura escalável por features.
 
-## Development server
+## Badges
 
-To start a local development server, run:
+![Angular](https://img.shields.io/badge/Angular-20-red)
+![NgRx](https://img.shields.io/badge/NgRx-Store%2FEffects-purple)
+![Transloco](https://img.shields.io/badge/i18n-Transloco-blue)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.x-38BDF8)
+![Jest](https://img.shields.io/badge/Tests-Jest-green)
 
-```bash
-ng serve
+## Stack
+
+- Angular 20 (standalone components)
+- Angular Material (kit de componentes)
+- NgRx (Store, Effects, Entity) para gerenciamento de estado
+- Transloco para i18n (arquivos em `public/i18n/`)
+- TailwindCSS para layout/spacing/responsividade
+- Jest para testes unitários (sem JIT)
+- JSON Server para mocks locais (opcional)
+
+## Estrutura do Projeto
+
+```
+src/
+ ┣ app/
+ ┃ ┣ core/                 # Serviços globais, interceptors, guardas
+ ┃ ┣ shared/               # Componentes/pipes/diretivas reutilizáveis
+ ┃ ┣ features/             # Funcionalidades organizadas por domínio
+ ┃ ┃ ┣ resume/             # Ex.: listagem/paginação de candidatos
+ ┃ ┣ store/                # Estado global (se aplicável)
+ ┃ ┣ mocks/                # Mock server (JSON Server)
+ ┃ ┣ app.routes.ts
+ ┃ ┗ app.component.ts
+ ┣ public/
+ ┃ ┗ i18n/                 # pt-br.json, en-us.json, es-es.json
+ ┣ environments/
+ ┣ main.ts
+ ┗ styles.scss | styles.css
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Para detalhes arquiteturais e decisões, veja os ADRs em `docs/adr/`:
 
-## Code scaffolding
+- `0001-adotar-ngrx-para-gerenciamento-de-estado.md`
+- `0002-adotar-tailwindcss.md`
+- `0003-combinar-tailwindcss-com-angular-material.md`
+- `0004-estrategia-testes-unitarios-sem-jit.md`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Pré-requisitos
 
-```bash
-ng generate component component-name
-```
+- Node.js 18+ e npm 9+
+- Angular CLI (opcional, recomendado):
+  ```bash
+  npm i -g @angular/cli
+  ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Instalação
 
 ```bash
-ng build
+git clone <repo-url>
+cd verity-jobs
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Como Rodar
 
-## Running unit tests
+- Desenvolvimento (porta 4200):
+  ```bash
+  npm start
+  # ou
+  ng serve
+  ```
+  Acesse: http://localhost:4200
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Mock API (opcional – JSON Server na porta 3001):
+  ```bash
+  npm run mock
+  ```
+  Arquivo de dados: `src/app/mocks/db.json`
+
+### i18n (Transloco)
+
+- Idiomas disponíveis: `pt-br`, `en-us`, `es-es`
+- Arquivos de tradução: `public/i18n/{lang}.json`
+- A troca de idioma é dinâmica via `TranslocoService` (ver `src/app/shared/ui/header/`).
+
+## Build
 
 ```bash
-ng test
+npm run build
+# artefatos em dist/ (config padrão Angular)
 ```
 
-## Running end-to-end tests
+## Testes
 
-For end-to-end (e2e) testing, run:
+O projeto oferece duas estratégias:
 
-```bash
-ng e2e
-```
+- Karma (padrão Angular CLI):
+  ```bash
+  npm test
+  ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Jest (sem JIT, recomendado para unidade de lógica):
+  ```bash
+  npm run test:jest
+  # modo watch
+  npm run test:jest:watch
+  ```
 
-## Additional Resources
+Diretrizes de testes e racional técnico estão em `docs/adr/0004-estrategia-testes-unitarios-sem-jit.md`.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Boas Práticas de Contribuição
+
+- Abra uma issue descrevendo claramente o problema/feature.
+- Crie branches com prefixos semânticos (ex.: `feat/`, `fix/`, `docs/`).
+- Siga o padrão arquitetural por features e mantenha a lógica de UI enxuta.
+- Para estado global/feature, prefira NgRx (`actions`, `reducers`, `effects`, `selectors`).
+- Testes unitários: foque na lógica de negócio (sem JIT) e mantenha testes rápidos.
+- Atualize traduções (`public/i18n/`) quando adicionar textos na UI.
+- Se alterar decisões arquiteturais, proponha/atualize um ADR em `docs/adr/`.
+
+## Licença
+
+Este projeto é distribuído sob a licença MIT. Consulte o arquivo `LICENSE` (se aplicável) para mais detalhes.
