@@ -18,6 +18,6 @@ export class Candidates {
 	}
 
 	loadResumes() {
-		this.store.dispatch(ResumeActions.loadResumes());
+		this.store.dispatch(ResumeActions.loadResumesPage({ page: 1, pageSize: 5 }));
 	}
 }

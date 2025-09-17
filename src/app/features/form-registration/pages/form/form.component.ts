@@ -136,19 +136,16 @@ export class FormRegistrationShellComponent {
 		if (this.currentStepNumber === 0 && this.identification) {
 			const data = this.identification.getValue();
 			this.store.dispatch(StepFormActions.setFormData({ data }));
-			console.log('data 1', data);
 		}
 
 		if (this.currentStepNumber === 1 && this.location) {
 			const data = this.location.getValue();
 			this.store.dispatch(StepFormActions.setFormData({ data }));
-			console.log('data 2', data);
 		}
 
 		if (this.currentStepNumber === 2 && this.occupation) {
 			const data = this.occupation.getValue();
 			this.store.dispatch(StepFormActions.setFormData({ data }));
-			console.log('data 3', data);
 		}
 	}
 
