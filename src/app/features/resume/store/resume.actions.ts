@@ -1,9 +1,20 @@
 import { createAction, props } from '@ngrx/store';
-import { DataStepForm } from '@/app/shared/interfaces/steps.interfaces';
+import { DataStepForm, ResponsePaginated } from '@/app/shared/interfaces/steps.interfaces';
 
 export const loadResumes = createAction('[Resumes] Load Resumes');
 export const loadResumesSuccess = createAction('[Resumes] Load Resumes Success', props<{ items: DataStepForm[] }>());
 export const loadResumesFailure = createAction('[Resumes] Load Resumes Failure', props<{ error: unknown }>());
+
+// Pagination
+export const loadResumesPage = createAction(
+  '[Resumes] Load Resumes Page',
+  props<{ page: number; pageSize: number }>()
+);
+export const loadResumesPageSuccess = createAction(
+  '[Resumes] Load Resumes Page Success',
+  props<{ response: ResponsePaginated }>()
+);
+export const loadResumesPageFailure = createAction('[Resumes] Load Resumes Page Failure', props<{ error: unknown }>());
 
 export const deleteResume = createAction('[Resumes] Delete Resume', props<{ id: string }>());
 export const deleteResumeSuccess = createAction('[Resumes] Delete Resume Success', props<{ id: string }>());

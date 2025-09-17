@@ -9,6 +9,9 @@ export interface State {
   resumes: 	DataStepForm[];
   loading: boolean;
   error?: unknown;
+  total: number;
+  page: number;
+  pageSize: number;
 }
 
 const initialState: State = {
@@ -16,6 +19,9 @@ const initialState: State = {
   resumes: [],
   loading: false,
   error: undefined,
+  total: 0,
+  page: 1,
+  pageSize: 5,
 };
 
 export const resumeReducer = createReducer(
@@ -23,6 +29,17 @@ export const resumeReducer = createReducer(
   on(ResumeActions.loadResumes, (state) => ({ ...state, loading: true, error: undefined })),
   on(ResumeActions.loadResumesSuccess, (state, { items }) => ({ ...state, loading: false, resumes: items })),
   on(ResumeActions.loadResumesFailure, (state, { error }) => ({ ...state, loading: false, error })),
+
+  // Pagination
+  on(ResumeActions.loadResumesPage, (state, { page, pageSize }) => ({ ...state, loading: true, error: undefined, page, pageSize })),
+  on(ResumeActions.loadResumesPageSuccess, (state, { response }) => ({
+    ...state,
+    loading: false,
+    resumes: response.data,
+    total: response.items,
+    // keep page and pageSize from the previous action
+  })),
+  on(ResumeActions.loadResumesPageFailure, (state, { error }) => ({ ...state, loading: false, error })),
 
   on(ResumeActions.deleteResume, (state) => ({ ...state, loading: true, error: undefined })),
   on(ResumeActions.deleteResumeSuccess, (state, { id }) => ({ ...state, loading: false, resumes: state.resumes.filter((resume) => resume.id !== id) })),

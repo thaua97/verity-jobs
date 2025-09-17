@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as ResumeActions from './resume.actions';
 import { ResumeService } from '../services/resume.service';
 import { catchError, map, mergeMap, of } from 'rxjs';
-import { DataStepForm } from '@/app/shared/interfaces/steps.interfaces';
+import { ResponsePaginated } from '@/app/shared/interfaces/steps.interfaces';
 
 
 @Injectable()
@@ -11,13 +11,16 @@ export class ResumeEffects {
   private actions$ = inject(Actions);
   private api = inject(ResumeService);
 
-  load$ = createEffect(() =>
+  loadPage$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(ResumeActions.loadResumes),
-      mergeMap(() =>
-        this.api.getResumes().pipe(
-          map((items) => ResumeActions.loadResumesSuccess({ items })),
-          catchError((error) => of(ResumeActions.loadResumesFailure({ error })))
+      ofType(ResumeActions.loadResumesPage),
+      mergeMap(({ page, pageSize }) =>
+        this.api.getResumes(page, pageSize).pipe(
+          map((resp) => {
+            const response = resp.body as ResponsePaginated;
+            return ResumeActions.loadResumesPageSuccess({ response });
+          }),
+          catchError((error) => of(ResumeActions.loadResumesPageFailure({ error })))
         )
       )
     )

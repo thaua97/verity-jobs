@@ -10,5 +10,10 @@ export const selectResumeLoading = createSelector(selectResumeState,
 export const selectResumeError = createSelector(selectResumeState,
 	(state) => state.error);
 
+// Pagination selectors
+export const selectResumeTotal = createSelector(selectResumeState, (state) => state.total);
+export const selectResumePage = createSelector(selectResumeState, (state) => state.page);
+export const selectResumePageSize = createSelector(selectResumeState, (state) => state.pageSize);
+
 export const selectCandidate = createSelector(selectResumeState,
 	(state) => state.candidate);

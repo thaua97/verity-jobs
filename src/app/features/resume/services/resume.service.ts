@@ -1,15 +1,25 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DataStepForm } from '@/app/shared/interfaces/steps.interfaces';
+import { DataStepForm, ResponsePaginated } from '@/app/shared/interfaces/steps.interfaces';
+import { environment } from '@/environments/environment.mock';
 
 @Injectable({ providedIn: 'root' })
 export class ResumeService {
   private http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:3000';
+  private readonly apiUrl = environment.apiUrl;
 
-  getResumes(): Observable<DataStepForm[]> {
-    return this.http.get<DataStepForm[]>(`${this.apiUrl}/registrations?_order=desc&_sort=id`);
+  getResumes(page: number, pageSize: number) {
+    const params = new HttpParams()
+      .set('_page', String(page))
+      .set('_per_page', String(pageSize))
+      .set('_order', 'desc')
+      .set('_sort', 'id');
+
+    return this.http.get<ResponsePaginated>(`${this.apiUrl}/registrations`, {
+      params,
+      observe: 'response',
+    });
   }
 
 	deleteResume(id: string): Observable<void> {
