@@ -1,16 +1,180 @@
 {
-    "sidebar": {
-        "findJobs": "Buscar una nueva oportunidad de trabajo",
-        "myJobs": "Mis candidaturas",
-        "myProfile": "Mi perfil"
-    },
-    "header": {
-        "home": "Inicio",
-        "resume": "Resumen",
-        "language": {
-            "pt-br": "Portugués",
-            "en-us": "Inglés",
-            "es-es": "Espanhol"
-        }
-    }
-}		
+	"sidebar": {
+		"findJobs": "Buscar una nueva oportunidad de trabajo",
+		"myJobs": "Mis candidaturas",
+		"myProfile": "Mi perfil"
+	},
+	"header": {
+		"home": "Inicio",
+		"resume": "Candidatos",
+		"language": {
+			"pt-br": "Portugués",
+			"en-us": "Inglés",
+			"es-es": "Español"
+		}
+	},
+	"footer": {
+		"brand": "Verity_",
+		"home": "Inicio",
+		"resumes": "Currículums",
+		"jobs": "Trabajos",
+		"profile": "Perfil",
+		"logout": "Salir"
+	},
+	"resume": {
+		"title": "Resumen",
+		"downloadPdf": "Descargar PDF",
+		"sections": {
+			"identification": "Identificación",
+			"address": "Dirección",
+			"professional": "Profesional"
+		},
+		"identification": {
+			"fullName": "Nombre completo",
+			"birthDate": "Fecha de nacimiento",
+			"phone": "Teléfono",
+			"cpf": "CPF"
+		},
+		"address": {
+			"address": "Dirección",
+			"district": "Barrio",
+			"cityUf": "Ciudad/Estado",
+			"zipCode": "Código Postal"
+		},
+		"professional": {
+			"ocupation": "Profesión",
+			"company": "Empresa",
+			"salary": "Salario",
+			"skills": "Habilidades",
+			"noSkills": "No se han informado habilidades."
+		},
+		"loading": "Cargando resumen...",
+		"empty": "No se encontraron datos. Vuelva al formulario para completar su información."
+	},
+	"form": {
+		"ident": {
+			"title": "Información personal",
+			"name": {
+				"label": "Nombre",
+				"hint": "Ingrese su nombre",
+				"errors": {
+					"required": "El nombre es obligatorio.",
+					"minlength": "Mínimo de 3 caracteres.",
+					"pattern": "Use solo letras y espacios."
+				}
+			},
+			"birthDate": {
+				"label": "Fecha de nacimiento",
+				"hint": "DD/MM/YYYY",
+				"errors": {
+					"required": "La fecha de nacimiento es obligatoria.",
+					"invalid": "Fecha inválida.",
+					"future": "La fecha no puede ser en el futuro.",
+					"minAge": "Edad mínima de 14 años."
+				}
+			},
+			"phone": {
+				"label": "Teléfono",
+				"placeholder": "Teléfono",
+				"errors": {
+					"required": "El teléfono es obligatorio.",
+					"length": "El teléfono debe tener de 10 a 11 dígitos."
+				}
+			},
+			"cpf": {
+				"label": "CPF",
+				"placeholder": "CPF",
+				"errors": {
+					"required": "El CPF es obligatorio.",
+					"length": "El CPF debe tener 11 dígitos.",
+					"invalid": "CPF inválido."
+				}
+			}
+		},
+		"location": {
+			"title": "Información residencial",
+			"zip": {
+				"label": "Código Postal",
+				"placeholder": "Código Postal",
+				"errors": {
+					"required": "El Código Postal es obligatorio.",
+					"length": "El Código Postal debe tener 8 dígitos.",
+					"notFound": "Código Postal no encontrado."
+				}
+			},
+			"address": {
+				"label": "Dirección",
+				"placeholder": "Dirección",
+				"errors": {
+					"required": "La dirección es obligatoria.",
+					"minlength": "Mínimo de 3 caracteres."
+				}
+			},
+			"district": {
+				"label": "Barrio",
+				"placeholder": "Barrio",
+				"errors": {
+					"required": "El barrio es obligatorio.",
+					"minlength": "Mínimo de 2 caracteres."
+				}
+			},
+			"city": {
+				"label": "Ciudad",
+				"placeholder": "Ciudad",
+				"errors": {
+					"required": "La ciudad es obligatoria.",
+					"minlength": "Mínimo de 2 caracteres."
+				}
+			},
+			"state": {
+				"label": "Estado",
+				"placeholder": "Estado",
+				"errors": {
+					"required": "El estado es obligatorio.",
+					"minlength": "Mínimo de 2 caracteres."
+				}
+			}
+		},
+		"work": {
+			"title": "Información profesional",
+			"ocupation": {
+				"label": "Profesión",
+				"placeholder": "Profesión"
+			},
+			"company": {
+				"label": "Empresa",
+				"placeholder": "Empresa"
+			},
+			"salary": {
+				"label": "Salario",
+				"placeholder": "Salario"
+			},
+			"skills": {
+				"label": "Habilidades (separadas por comas)",
+				"placeholder": "Ej.: Angular, TypeScript, NgRx"
+			}
+		}
+	},
+	"resumes": {
+		"title": "Currículos_"
+	},
+	"noCandidates": {
+		"title": "No hay candidatos en este momento",
+		"description": "Haz clic en el botón a continuación para registrar un candidato",
+		"button": "Registrar candidato"
+	},
+	"dialogs": {
+		"confirmSubmit": {
+			"title": "Confirmar envío",
+			"message": "¿Desea finalizar el registro de este candidato?",
+			"confirm": "Enviar",
+			"cancel": "Volver"
+		},
+		"deleteCandidate": {
+			"title": "Eliminar candidato",
+			"message": "¿Está seguro de que desea eliminar a este candidato?",
+			"confirm": "Eliminar",
+			"cancel": "Cancelar"
+		}
+	}
+}

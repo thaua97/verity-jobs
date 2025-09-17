@@ -1,17 +1,180 @@
 {
-    "sidebar": {
-        "findJobs": "Find a new job opportunity",
-        "myJobs": "My applications",
-        "myProfile": "My profile"
-    },
-    "header": {
-        "home": "Home",
-        "resume": "Resume",
-        "language": {
-            "pt-br": "Portuguese",
-            "en-us": "English",
-            "es-es": "Spanish"
-        }
-    }
+	"sidebar": {
+		"findJobs": "Find a new job opportunity",
+		"myJobs": "My applications",
+		"myProfile": "My profile"
+	},
+	"header": {
+		"home": "Home",
+		"resume": "Candidates",
+		"language": {
+			"pt-br": "Portuguese",
+			"en-us": "English",
+			"es-es": "Spanish"
+		}
+	},
+	"footer": {
+		"brand": "Verity_",
+		"home": "Home",
+		"resumes": "Resumes",
+		"jobs": "Jobs",
+		"profile": "Profile",
+		"logout": "Logout"
+	},
+	"resume": {
+		"title": "Resume",
+		"downloadPdf": "Download PDF",
+		"sections": {
+			"identification": "Identification",
+			"address": "Address",
+			"professional": "Professional"
+		},
+		"identification": {
+			"fullName": "Full name",
+			"birthDate": "Date of birth",
+			"phone": "Phone",
+			"cpf": "CPF"
+		},
+		"address": {
+			"address": "Address",
+			"district": "District",
+			"cityUf": "City/State",
+			"zipCode": "ZIP Code"
+		},
+		"professional": {
+			"ocupation": "Occupation",
+			"company": "Company",
+			"salary": "Salary",
+			"skills": "Skills",
+			"noSkills": "No skills provided."
+		},
+		"loading": "Loading resume...",
+		"empty": "No data found. Go back to the form to fill in your information."
+	},
+	"form": {
+		"ident": {
+			"title": "Personal information",
+			"name": {
+				"label": "Name",
+				"hint": "Enter your name",
+				"errors": {
+					"required": "Name is required.",
+					"minlength": "Minimum of 3 characters.",
+					"pattern": "Use letters and spaces only."
+				}
+			},
+			"birthDate": {
+				"label": "Date of Birth",
+				"hint": "DD/MM/YYYY",
+				"errors": {
+					"required": "Date of birth is required.",
+					"invalid": "Invalid date.",
+					"future": "The date cannot be in the future.",
+					"minAge": "Minimum age is 14 years."
+				}
+			},
+			"phone": {
+				"label": "Phone",
+				"placeholder": "Phone",
+				"errors": {
+					"required": "Phone is required.",
+					"length": "Phone must have 10 to 11 digits."
+				}
+			},
+			"cpf": {
+				"label": "CPF",
+				"placeholder": "CPF",
+				"errors": {
+					"required": "CPF is required.",
+					"length": "CPF must have 11 digits.",
+					"invalid": "Invalid CPF."
+				}
+			}
+		},
+		"location": {
+			"title": "Residential Information",
+			"zip": {
+				"label": "ZIP Code",
+				"placeholder": "ZIP Code",
+				"errors": {
+					"required": "ZIP Code is required.",
+					"length": "ZIP Code must have 8 digits.",
+					"notFound": "ZIP Code not found."
+				}
+			},
+			"address": {
+				"label": "Address",
+				"placeholder": "Address",
+				"errors": {
+					"required": "Address is required.",
+					"minlength": "Minimum of 3 characters."
+				}
+			},
+			"district": {
+				"label": "District",
+				"placeholder": "District",
+				"errors": {
+					"required": "District is required.",
+					"minlength": "Minimum of 2 characters."
+				}
+			},
+			"city": {
+				"label": "City",
+				"placeholder": "City",
+				"errors": {
+					"required": "City is required.",
+					"minlength": "Minimum of 2 characters."
+				}
+			},
+			"state": {
+				"label": "State",
+				"placeholder": "State",
+				"errors": {
+					"required": "State is required.",
+					"minlength": "Minimum of 2 characters."
+				}
+			}
+		},
+		"work": {
+			"title": "Professional Information",
+			"ocupation": {
+				"label": "Occupation",
+				"placeholder": "Occupation"
+			},
+			"company": {
+				"label": "Company",
+				"placeholder": "Company"
+			},
+			"salary": {
+				"label": "Salary",
+				"placeholder": "Salary"
+			},
+			"skills": {
+				"label": "Skills (comma-separated)",
+				"placeholder": "E.g.: Angular, TypeScript, NgRx"
+			}
+		}
+	},
+	"resumes": {
+		"title": "Candidates_"
+	},
+	"noCandidates": {
+		"title": "No candidates at the moment",
+		"description": "Click the button below to register a candidate",
+		"button": "Register candidate"
+	},
+	"dialogs": {
+		"confirmSubmit": {
+			"title": "Confirm submission",
+			"message": "Do you want to finalize this candidate's registration?",
+			"confirm": "Submit",
+			"cancel": "Back"
+		},
+		"deleteCandidate": {
+			"title": "Delete candidate",
+			"message": "Are you sure you want to delete this candidate?",
+			"confirm": "Delete",
+			"cancel": "Cancel"
+		}
+	}
 }
-    
